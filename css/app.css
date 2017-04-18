@@ -17,6 +17,7 @@ body {
     position: absolute;
     width: 260px;
     height: 200%;
+	margin: 0 auto;
     top: 0;
     bottom: 0;
     background: #2b2f3e;   
