@@ -16,7 +16,7 @@ body {
 .aside {
     position: absolute;
     width: 260px;
-    height: 200%;
+    height: 100%;
 	margin: 0 auto;
     top: 0;
     bottom: 0;
