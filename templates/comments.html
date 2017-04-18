@@ -1,0 +1,8 @@
+<div class="comments-outer" ng-repeat='comment in items[currentIndex].comments'>
+    <div class="comment-block border-true">
+            <div class="mark-block">
+                <div class="mark-comment mark-{{$odd ? true : false}}"></div>
+            </div>
+            <div class="text-block-comment">{{comment}}</div>
+    </div>
+</div>
