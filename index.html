@@ -22,8 +22,8 @@
                     <div class='innerContent text-main'>
                         <span>Items</span>
                         <div class="input">
-                                <input type="text" class="input-field" ng-model="textItem" placeholder="Type name here..." tabindex="3" autofocus/> 
-                                <button class='button-add' ng-click="createItem()" tabindex="1">Add new</button>
+                                <input type="text" class="input-field" ng-model="textItem" placeholder="Type name here..." tabindex="0" autofocus/> 
+                                <button class='button-add' ng-click="createItem()">Add new</button>
                         </div>
                     </div>
                     
@@ -47,7 +47,7 @@
                             </div>
             
                             <div class="text-block-comment"> 
-                                 <textarea ng-disabled="disabledComment" ng-keypress="createComment(comment)" ng-model='textComment' cols="10" rows="5" tabindex="2"></textarea>
+                                 <textarea ng-disabled="disabledComment" ng-keypress="createComment(comment)" ng-model='textComment' cols="10" rows="5" tabindex="1"></textarea>
                             </div>
                         </div>
                     </div>
