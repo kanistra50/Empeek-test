@@ -20,7 +20,7 @@ angular.module("storeService", [])
                                 }			
                             ];
 
-        this.name = 'EmpeekStorage';
+        this.name = 'Empeek';
 
         this.getData = function () {
             
