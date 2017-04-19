@@ -25,8 +25,8 @@ angular.module("storeService", [])
         this.getData = function () {
             
             let data = localStorage.getItem(this.name);
+            
             if (!data || !data[0]) {
-                console.log("getData - empty Storage");
                 data = INITIAL_DATA;
                 this.setData(data);
                 return data;
