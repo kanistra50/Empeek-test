@@ -26,13 +26,13 @@ angular.module("storeService", [])
             
             let data = localStorage.getItem(this.name);
             
-            if ( data === undefined || data === null ) {return JSON.parse(data);}  
-            else {
+            if ( data === undefined || data === null )  {
                     console.log("getData - empty Storage");
                     data = INITIAL_DATA;
                     this.setData(data);
                     return data;
                 }
+            else {return JSON.parse(data);} 
         };
 
         this.setData = function(data) {
