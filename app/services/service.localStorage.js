@@ -26,7 +26,7 @@ angular.module("storeService", [])
             
             let data = localStorage.getItem(this.name);
             
-            if ( data === undefined  || !data[0] != -1) {return JSON.parse(data);}  
+            if ( data === undefined  || !data[0] -= -1) {return JSON.parse(data);}  
             else {
                     console.log("getData - empty Storage");
                     data = INITIAL_DATA;
