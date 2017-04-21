@@ -25,12 +25,14 @@ angular.module("storeService", [])
         this.getData = function () {
             
             let data = localStorage.getItem(this.name);
-            if (data === undefined  || data[0] == -1) {
-                console.log("getData - empty Storage");
-                data = INITIAL_DATA;
-                this.setData(data);
-                return data;
-            } else {return JSON.parse(data);}  
+            
+            if ( data !== undefined  || data[0] !== -1) {return JSON.parse(data);}  
+            else {
+                    console.log("getData - empty Storage");
+                    data = INITIAL_DATA;
+                    this.setData(data);
+                    return data;
+                }
         };
 
         this.setData = function(data) {
