@@ -1,7 +1,7 @@
 <div class="item-outer-{{currentIndex == $index}}" ng-repeat="item in items">
         <div class="item-inner">
                     <div class="inner-block">
-                         <span class='item-text' ng-cloak ng-click="clickItem(item)">{{item.username | limitTo : 45}}</span>
+                         <span class='item-text' ng-cloak ng-click="clickItem(item)">{{item.username | limitTo : 30}}</span>
                          <span class='comments-counter' ng-cloak>{{item.comments.length}}</span>
                     </div>
                    <button class='button-delete' ng-click="deleteItem(item)">Delete</button>
