@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-<head >
+<head>
     <meta charset="utf-8">
     <title>Empeek</title>
 
     <link rel="stylesheet" href="css/app.css">
     <script src="vendor/angular/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controller.default.js"></script>
+    <script src="app/services/service.localStorage.js"></script>
+    <script src="app/directives/directive.items.js"></script>
+    <script src="app/directives/directive.comments.js"></script>
 </head>
 <body>
         <aside class='aside text-main'>
             <div class='inner'>
-               <span>Main</span>
+                <span>Main</span>
             </div>
             <div class='overview'>
                 <span class="inner">Overview</span>
             </div>
         </aside>
         <section class='content' ng-controller="defaultCtrl">
-        
-                <div class='field items'> 
-                    <div class='innerContent text-main'>
-                        <span>Items</span>
-                        <div class="input">
-                                <input type="text" class="input-field" ng-model="textItem" placeholder="Type name here..." tabindex="0" autofocus/> 
-                                <button class='button-add' ng-click="createItem()">Add new</button>
-                        </div>
-                    </div>
-                    
-                    <div dir-items></div>
 
+            <div class='field items'>
+                <div class='innerContent text-main'>
+                    <span>Items</span>
+                    <div class="input">
+                        <input type="text" class="input-field"  ng-maxlength="20" ng-model="textItem"
+                               placeholder="Type name here..." tabindex="0" ng-keypress="keypress($event)"
+                               autofocus/>
+                        <span class="error" ng-show="textItem.$error.maxlength">
+                            Reached limit!
+                        </span>
+                        <button class='button-add' ng-click="createItem(deleteItem)">Add new</button>
+                    </div>
                 </div>
 
-<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+                <div dir-items></div>
 
-                <div class='field comments'> 
-                    <div class='comments-field text-main'>
-                        <span ng-cloak>Comments #{{currentIndex + 1}}</span>
-                    </div>
+            </div>
 
-                    <div dir-comments></div>
+            <!-- ////////////////////////////////////////////////////////////////////////////////// -->
 
-                    <div class="comments-outer">
-                        <div class="comment-block">
-                            <div class="mark-block">
-                                <div class="mark-comment mark-default"></div>
-                            </div>
-            
-                            <div class="text-block-comment"> 
-                                 <textarea ng-disabled="disabledComment" ng-keypress="createComment(comment)" ng-model='textComment' cols="10" rows="5" tabindex="1"></textarea>
-                            </div>
+            <div class='field comments'>
+                <div class='comments-field text-main'>
+                    <span ng-cloak>Comments #{{currentIndex + 1}}</span>
+                </div>
+
+                <div dir-comments></div>
+
+                <div class="comments-outer">
+                    <div class="comment-block">
+                        <div class="mark-block">
+                            <div class="mark-comment mark-default"></div>
+                        </div>
+
+                        <div class="text-block-comment">
+                            <textarea ng-disabled="disabledComment" ng-keypress="createComment($event)"
+                                      ng-model='textComment' cols="10" rows="5" tabindex="1"></textarea>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 
-        <script src="app/app.js"></script>
-        <script src="app/controllers/controller.default.js"></script>
-        <script src="app/services/service.localStorage.js"></script>
-        <script src="app/directives/directive.items.js"></script>
-        <script src="app/directives/directive.comments.js"></script>
 </body>
 </html>
