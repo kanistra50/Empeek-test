@@ -135,6 +135,7 @@ section.content {
 }
 
 .item-text {
+    text-transform:capitalize;
     display: table-cell;
     color: #2b2f3e;
     font-size: 12pt;
@@ -235,13 +236,6 @@ div.comments {
     width: 336px;
     margin: 0 0 4px 15px;
 }
-
-/*.comment-input {
-  outline: none;
-  width: 330px;
-  height: 65px;
-  white-space: nowrap;
-}*/
 
 textarea {
     width: 330px;
