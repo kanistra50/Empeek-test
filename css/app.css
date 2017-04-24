@@ -68,7 +68,7 @@ section.content {
 }
 
 .input-field {
-    margin: 0 2px 0 6px;
+    margin-right: 2px;
     height: 36px;
     width: 277px;
     font-size: 11pt;
