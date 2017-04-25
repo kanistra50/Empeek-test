@@ -29,8 +29,9 @@ angular.module("storeService", [])
             if (!data || !data[0]) {
                 data = INITIAL_DATA;
                 this.setData(data);
-                return data;
-            } else {return JSON.parse(data);}  
+            } 
+//             else {return JSON.parse(data);}  
+            return data;
         };
 
         this.setData = function(data) {
