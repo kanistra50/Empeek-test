@@ -41,7 +41,7 @@ module
             let len = $scope.items.length;
             Storage.setData($scope.items);
 
-            if (len == 0) {
+            if (len === 0) {
                 $scope.currentIndex = -1;
                 $scope.disabledComment = true;
             } else {
