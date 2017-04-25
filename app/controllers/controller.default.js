@@ -9,15 +9,13 @@ module
         $scope.items = [];
         $scope.$index = 0;
         $scope.currentIndex = 0;
-        $scope.showItemAdvise = "none";
-        $scope.showCommentAdvise = "none";
         
-        // let checkForItems = function () {
-        //     if ($scope.items != undefined || $scope.items[0] != -1) {
-        //     return false;
-        //     }
-        //     else {return true;}
-        // };
+        let checkForItems = function () {
+            if ($scope.items != undefined || $scope.items[0] != -1) { 
+            return false; 
+            }
+            else {return true;}
+        };
 
         $scope.items = Storage.getData();
        
@@ -50,14 +48,10 @@ module
         };
 
         $scope.createItem = function (clbckFn) {
-            // if (!checkForItems) {
-            //     $scope.currentIndex = 0;
-            // }
 
             let el = $scope.items.find(e => e.username === $scope.textItem);
-
             if($scope.textItem && !el) {
-                $scope.items.push({ username: $scope.textItem, comments: [] });
+                $scope.items.push({username: $scope.textItem, comments: []} );
                 $scope.currentIndex = $scope.items.length - 1;
                 $scope.textItem = '';
                 $scope.disabledComment = false;
@@ -70,27 +64,14 @@ module
         };
 
         $scope.createComment = function (e) {
-            $scope.showCommentAdvise = "none";
-            console.log($scope.textComment);
-            // e = e || window.event;
-            if (e.keyCode === 13) {
+            e = e || window.event;
 
-                let commentsArr = $scope.items[$scope.currentIndex].comments;
-                let el = commentsArr.find(
-                    function check(element) {
-                        return element == $scope.textComment;
-                    });
-                console.log(el);  console.log(commentsArr);
-                //
-                //
-
-                if ($scope.textComment && !el) {
-
-                    commentsArr.push($scope.textComment);
+            if ($scope.textComment) {
+                if (e.keyCode === 13) {
+                    $scope.items[$scope.currentIndex].comments.push($scope.textComment);
                     $scope.textComment = '';
                     Storage.setData($scope.items);
-
-                } else {$scope.showCommentAdvise = "display";}
+                }
             }
         };
        
