@@ -20,7 +20,7 @@ angular.module("storeService", [])
                                 }			
                             ];
 
-        this.name = 'Empeek_Storage';
+        this.name = 'Empeek';
 
         this.getData = function () {
             
@@ -29,9 +29,8 @@ angular.module("storeService", [])
             if (!data || !data[0]) {
                 data = INITIAL_DATA;
                 this.setData(data);
-            } 
-//             else {return JSON.parse(data);}  
-            return data;
+                return data;
+            } else {return JSON.parse(data);}  
         };
 
         this.setData = function(data) {
